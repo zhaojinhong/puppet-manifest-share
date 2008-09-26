@@ -12,7 +12,7 @@ class dbp {
 	package {
 		[ nvi,lpr,ppp,pppconfig,pppoe,pppoeconf ]:
 		ensure => present;
-		[ rsync,ntpdate,curl,nload,tcpick,tcpdump,subversion,iproute,vim,lsb-release,rcconf,most ]:
+		[ cdargs,rsync,ntpdate,curl,nload,tcpick,tcpdump,subversion,iproute,vim,lsb-release,rcconf,most ]:
 		ensure => installed;
 	}
 
