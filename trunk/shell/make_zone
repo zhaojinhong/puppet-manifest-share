@@ -1,0 +1,47 @@
+#!/bin/bash
+#电信
+grep -i \
+-e "CERNET-CN" \
+-e "CHINANET" $1|\
+awk 'BEGIN{print "acl \"TELECOM\" {" >"telecom_acl.conf"}{print $NF";" >"telecom_acl.conf"}END{print "};" >"telecom_acl.conf"}'
+#北方网通
+grep -i \
+-e "CNCGROUP " \
+-e "CNCGROUP-AH" \
+-e "CNCGROUP-BJ" \
+-e "CNCGROUP-CN" \
+-e "CNCGROUP-HA" \
+-e "CNCGROUP-HB" \
+-e "CNCGROUP-HL" \
+-e "CNCGROUP-JL" \
+-e "CNCGROUP-LN" \
+-e "CNCGROUP-SN" \
+-e "CNCGROUP-NM" \
+-e "CNCGROUP-NX" \
+-e "CNCGROUP-HE" \
+-e "CNCGROUP-QH" \
+-e "CNCGROUP-XZ" \
+-e "CNCGROUP-SD" \
+-e "CNCGROUP-SX" \
+-e "CNCGROUP-TJ" \
+-e "CNCGROUP-XJ" \
+$1|awk 'BEGIN{print "acl \"NCNC\" {" >"ncnc_acl.conf"}{print $NF";" >"ncnc_acl.conf"}END{print "};" >"ncnc_acl.conf"}'
+
+
+#南方网通
+grep -i \
+-e "CNCGROUP-CQ" \
+-e "CNCGROUP-FJ" \
+-e "CNCGROUP-GD" \
+-e "CNCGROUP-GS" \
+-e "CNCGROUP-GZ" \
+-e "CNCGROUP-HI" \
+-e "CNCGROUP-HN" \
+-e "CNCGROUP-JS" \
+-e "CNCGROUP-JX" \
+-e "CNCGROUP-SC" \
+-e "CNCGROUP-SH" \
+-e "CNCGROUP-YN" \
+-e "CNCGROUP-GX" \
+-e "CNCGROUP-ZJ" \
+$1|awk 'BEGIN{print "acl \"SCNC\" {" >"scnc_acl.conf"}{print $NF";" >"scnc_acl.conf"}END{print "};" >"scnc_acl.conf"}'
